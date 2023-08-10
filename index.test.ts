@@ -1,4 +1,8 @@
-import { convertToAlphabet, getAlphabetMappingByEmail } from ".";
+import {
+  convertToAlphabet,
+  generateUniqueTempPassword,
+  getAlphabetMappingByEmail,
+} from ".";
 
 describe("Alphabet mapping of email", () => {
   it("should only create map from the letter present in email", () => {
@@ -76,6 +80,21 @@ describe("convert to alphabet", () => {
     "should return nearest value $expected if the $input is not exist in the mapping",
     ({ input, expected }) => {
       expect(convertToAlphabet(alphabetMapping, input)).toBe(expected);
+    }
+  );
+});
+
+describe("generate unique temp password", () => {
+  it.each([
+    {
+      email: "superadmin@jakpat.net",
+      date: "2001-10-31",
+      expected: "A@@AJU",
+    },
+  ])(
+    "should convert $email and $date into $expected",
+    ({ email, date, expected }) => {
+      expect(generateUniqueTempPassword(email, date)).toBe(expected);
     }
   );
 });

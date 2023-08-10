@@ -83,3 +83,15 @@ function findNearestResult(
 
   return alphabetMapping[nearestKey];
 }
+
+export function generateUniqueTempPassword(
+  email: string,
+  date: string
+): string {
+  const [year, month, day] = date.split("-");
+  const alphabetMapping = getAlphabetMappingByEmail(email);
+  const ingredients = [...year.split(""), month, day].map(Number);
+  return ingredients
+    .map((ingredient) => convertToAlphabet(alphabetMapping, ingredient))
+    .join("");
+}
