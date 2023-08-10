@@ -30,13 +30,13 @@ const alphabetDictionary: Record<string, number> = {
 
 export function getAlphabetMappingByEmail(
   email: string
-): Record<string, number> {
+): Record<number, string> {
   return (
     email
       .replace(".", "")
       .split("")
       // create a mapping of letter and it's numeric representative
-      .map((c) => ({ [c]: alphabetDictionary[c] }))
+      .map((c) => ({ [alphabetDictionary[c]]: c }))
       // merge all of that
       .reduce((prev, current) => {
         prev = {
