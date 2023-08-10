@@ -5,16 +5,16 @@ describe("Alphabet mapping of email", () => {
     const email = "ikhsan@jakpat.net";
     const expectedMapping = {
       0: "@",
-      9: "i",
-      11: "k",
-      8: "h",
-      19: "s",
-      1: "a",
-      14: "n",
-      10: "j",
-      16: "p",
-      20: "t",
-      5: "e",
+      9: "I",
+      11: "K",
+      8: "H",
+      19: "S",
+      1: "A",
+      14: "N",
+      10: "J",
+      16: "P",
+      20: "T",
+      5: "E",
     };
 
     expect(getAlphabetMappingByEmail(email)).toEqual(expectedMapping);
