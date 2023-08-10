@@ -48,3 +48,38 @@ export function getAlphabetMappingByEmail(
       }, {})
   );
 }
+
+export function convertToAlphabet(
+  alphabetMapping: Record<number, string>,
+  value: number
+): string {
+  const exactResult = alphabetMapping[value];
+  if (!exactResult) {
+    return findNearestResult(alphabetMapping, value);
+  }
+  return exactResult;
+}
+
+function findNearestResult(
+  alphabetMapping: Record<number, string>,
+  value: number
+): string {
+  const keys = Object.keys(alphabetMapping)
+    .map((key) => parseInt(key))
+    .sort();
+
+  let nearestKey = 0;
+  let prevDistance = Infinity;
+  // find the nearest key from the value parameter that exist
+  for (const key of keys) {
+    const distance = Math.abs(value - key);
+    if (distance >= prevDistance) {
+      continue;
+    }
+
+    prevDistance = distance;
+    nearestKey = key;
+  }
+
+  return alphabetMapping[nearestKey];
+}
