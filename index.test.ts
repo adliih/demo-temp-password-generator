@@ -66,15 +66,15 @@ describe("convert to alphabet", () => {
   it.each([
     {
       input: 2,
-      expected: "A",
+      expected: "a",
     },
     {
       input: 7,
-      expected: "H",
+      expected: "h",
     },
     {
       input: 15,
-      expected: "N",
+      expected: "n",
     },
   ])(
     "should return nearest value $expected if the $input is not exist in the mapping",
@@ -89,7 +89,7 @@ describe("generate unique temp password", () => {
     {
       email: "superadmin@jakpat.net",
       date: "2001-10-31",
-      expected: "A@@AJU",
+      expected: "a@@AJu",
     },
   ])(
     "should convert $email and $date into $expected",

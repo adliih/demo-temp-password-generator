@@ -81,7 +81,7 @@ function findNearestResult(
     nearestKey = key;
   }
 
-  return alphabetMapping[nearestKey];
+  return alphabetMapping[nearestKey].toLowerCase();
 }
 
 export function generateUniqueTempPassword(
