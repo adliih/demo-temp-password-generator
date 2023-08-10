@@ -91,6 +91,11 @@ describe("generate unique temp password", () => {
       date: "2001-10-31",
       expected: "a@@AJu",
     },
+    {
+      email: "ikhsan@jakpat.net",
+      date: "1980-07-15",
+      expected: "AIH@hn",
+    },
   ])(
     "should convert $email and $date into $expected",
     ({ email, date, expected }) => {
