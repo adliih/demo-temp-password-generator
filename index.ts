@@ -33,7 +33,7 @@ export function getAlphabetMappingByEmail(
 ): Record<number, string> {
   return (
     email
-      .replace(".", "")
+      .replace(/[^a-zA-Z@]/g, "")
       .toUpperCase()
       .split("")
       // create a mapping of letter and it's numeric representative
